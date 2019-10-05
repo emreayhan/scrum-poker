@@ -1,0 +1,27 @@
+.rowForNameAndVote{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-content: center;
+    margin-top:70px;
+}
+
+.inputText{
+    width: 300px;
+    margin-left: 15px;
+}
+.textarea{
+    width:1024px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.textAreaLabel{
+    margin-top: 30px; 
+    margin-bottom: 10px;
+}
+
+button{
+    float: right;
+    padding: 15px 45px;
+}

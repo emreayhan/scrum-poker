@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import AddStoryList from './pages/Add-Story-List/Add-Story-List';
+import ViewAsScrumMaster from './pages/View-As-Scrum-Master/View-As-Scrum-Master';
+import ViewAsDeveloper from './pages/View-As-Developer/View-As-Developer';
 
 function App() {
   return (
+    <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+          <Route exact path="/-add-story-list" component={AddStoryList} />
+          <Route path="/-view-as-scrum-master" component={ViewAsScrumMaster} />
+          <Route path="/-view-as-developer" component={ViewAsDeveloper} />
+        </Switch>
     </div>
+    </Provider>
   );
 }
 

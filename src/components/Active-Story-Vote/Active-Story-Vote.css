@@ -1,0 +1,21 @@
+.votes{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-gap: 1.4em;
+    padding: 40px 15px;
+}
+
+.votes > div{
+    border: 1px solid lightgray;
+    padding: 1em;
+    text-align: center;
+}
+
+.points{
+    cursor:pointer;
+}
+
+.points:hover{
+    border-color:#50ebeb;
+}
+
