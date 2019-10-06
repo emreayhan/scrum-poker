@@ -84,9 +84,11 @@ const mapStateToProps = ({ scrumPokerReducers }) => {
 	let { sessionData, points, activeStory } = scrumPokerReducers;
 	return { sessionData, points, activeStory };
 };
+
 ScrumMasterPanel.propTypes = {
 	sessionData: PropTypes.object,
 	points: PropTypes.array,
 	activeStory: PropTypes.object
 };
+
 export default connect(mapStateToProps, { getActiveStory, endVote })(ScrumMasterPanel);
