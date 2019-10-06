@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/scrum-poker/static/css/main.f1cdf4ac.chunk.css",
+    "main.js": "/scrum-poker/static/js/main.a4a00221.chunk.js",
+    "main.js.map": "/scrum-poker/static/js/main.a4a00221.chunk.js.map",
+    "runtime-main.js": "/scrum-poker/static/js/runtime-main.a43ee38a.js",
+    "runtime-main.js.map": "/scrum-poker/static/js/runtime-main.a43ee38a.js.map",
+    "static/js/2.f5e0156c.chunk.js": "/scrum-poker/static/js/2.f5e0156c.chunk.js",
+    "static/js/2.f5e0156c.chunk.js.map": "/scrum-poker/static/js/2.f5e0156c.chunk.js.map",
+    "index.html": "/scrum-poker/index.html",
+    "precache-manifest.749fee0576b47afadb528cf00a5ba932.js": "/scrum-poker/precache-manifest.749fee0576b47afadb528cf00a5ba932.js",
+    "service-worker.js": "/scrum-poker/service-worker.js",
+    "static/css/main.f1cdf4ac.chunk.css.map": "/scrum-poker/static/css/main.f1cdf4ac.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a43ee38a.js",
+    "static/js/2.f5e0156c.chunk.js",
+    "static/css/main.f1cdf4ac.chunk.css",
+    "static/js/main.a4a00221.chunk.js"
+  ]
+}
