@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './Story-List-Table.css';
 import { getActiveStory } from '../../store/actions/scrum-poker-actions';
@@ -23,10 +24,14 @@ class StoryListTable extends Component {
 					{this.props.sessionData.storyList.map((item, index) => {
 						return (
 							<tr key={index}>
-								<td onClick={() => {
-									console.log(item)
-									this.props.getActiveStory(item)}
-									}>{item.storyName}</td>
+								<td
+									style={{ cursor: 'pointer' }}
+									onClick={() => {
+										this.props.getActiveStory(item);
+									}}
+								>
+									{item.storyName}
+								</td>
 								<td>{item.storyPoint === 0 ? '' : item.storyPoint}</td>
 								<td>{item.status === false ? 'Not Voted' : 'Voted'}</td>
 							</tr>
@@ -43,6 +48,9 @@ const mapStateToProps = ({ scrumPokerReducers }) => {
 	return { sessionData, activeStory };
 };
 
-StoryListTable.propTypes = {};
+StoryListTable.propTypes = {
+	sessionData:PropTypes.object,
+	activeStory:PropTypes.object
+};
 
 export default connect(mapStateToProps, { getActiveStory })(StoryListTable);

@@ -5,8 +5,8 @@ import ScrumMasterPanel from '../../components/Scrum-Master-Panel/Scrum-Master-P
 import Header from '../../components/Header/Header';
 
 class ViewAsScrumMaster extends Component {
-	constructor(props, ...rest) {
-		super(props, ...rest);
+	constructor(props) {
+		super(props);
 		this.state = {};
 	}
 
@@ -14,7 +14,7 @@ class ViewAsScrumMaster extends Component {
 		return (
 			<div>
 				<Header />
-				<div style={{ display: 'flex', flexDirection: 'row',justifyContent:"space-between" }}>
+				<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
 					<StoryListTable />
 					<ActiveStoryVote />
 					<ScrumMasterPanel />

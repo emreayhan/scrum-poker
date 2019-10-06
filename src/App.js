@@ -12,9 +12,9 @@ function App() {
     <Provider store={store}>
     <div className="App">
       <Switch>
-          <Route exact path="/-add-story-list" component={AddStoryList} />
-          <Route path="/-view-as-scrum-master" component={ViewAsScrumMaster} />
-          <Route path="/-view-as-developer" component={ViewAsDeveloper} />
+          <Route exact path="/poker-planning-add-story-list" component={AddStoryList} />
+          <Route path="/poker-planning-view-as-scrum-master" component={ViewAsScrumMaster} />
+          <Route path="/poker-planning-view-as-developer" component={ViewAsDeveloper} />
         </Switch>
     </div>
     </Provider>

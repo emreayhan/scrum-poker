@@ -5,8 +5,10 @@ table, td, th {
 
 table{
     border-collapse: collapse;
-    width: 420px;
-    min-height: 340px;
+    width: 380px;
+    min-height: 400px;
+    margin-left:10px;
+    margin-right:10px;
 }
   
 th, td {

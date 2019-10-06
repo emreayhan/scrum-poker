@@ -14,7 +14,7 @@ export const getActiveStory = (payload) => (dispatch) => {
 	});
 };
 
-export const setPoint = (payload) => (dispatch) => {
+export const setPoints = (payload) => (dispatch) => {
 	dispatch({
 		type: SET_STORY_POINT,
 		payload

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../../components/Header/Header';
 import { NavLink } from 'react-router-dom';
@@ -23,11 +24,11 @@ class AddStoryList extends Component {
 
 	render() {
 		const { sessionName, numberOfVoters, storyList } = this.state;
-			let sessionData = {
-				sessionName,
-				numberOfVoters,
-				storyList
-			};
+		let sessionData = {
+			sessionName,
+			numberOfVoters,
+			storyList
+		};
 		return (
 			<div>
 				<Header />
@@ -63,7 +64,7 @@ class AddStoryList extends Component {
 							onBlur={() => this.getStoryListAsArray()}
 						/>
 					</div>
-					<NavLink to="/-view-as-scrum-master">
+					<NavLink to="/poker-planning-view-as-scrum-master">
 						<button onClick={() => this.props.startSessionAction(sessionData)}>Start Session</button>
 					</NavLink>
 				</div>
@@ -76,7 +77,7 @@ class AddStoryList extends Component {
 	};
 
 	handleChangeNumberOfVoters = (e) => {
-			this.setState({ numberOfVoters: e.target.value.replace(/[^1-9]/,'') }, () => console.log(this.state.numberOfVoters));
+		this.setState({ numberOfVoters: e.target.value.replace(/[^1-9]/, '') });
 	};
 
 	getStoryListAsArray = () => {
@@ -90,19 +91,19 @@ class AddStoryList extends Component {
 				storyId: Math.random()
 			};
 		});
-		this.setState(
-			{
-				storyList: list
-			},
-			() => console.log(this.state.storyList)
-		);
+		this.setState({
+			storyList: list
+		});
 	};
 }
-
-AddStoryList.propTypes = {};
 
 const mapStateToProps = ({ scrumPokerReducers }) => {
 	let { sessionData } = scrumPokerReducers;
 	return { sessionData };
 };
+
+AddStoryList.propTypes = {
+	sessionData: PropTypes.object
+};
+
 export default connect(mapStateToProps, { startSessionAction })(AddStoryList);

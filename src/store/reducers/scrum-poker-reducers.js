@@ -1,4 +1,4 @@
-import { START_SESSION, GET_ACTIVE_STORY, SET_STORY_POINT,END_VOTE } from '../actions/types';
+import { START_SESSION, GET_ACTIVE_STORY, SET_STORY_POINT, END_VOTE } from '../actions/types';
 
 const INITIAL_STATE = {
 	sessionData: {
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 				storyPoint: 0,
 				status: false,
 				storyId: '',
-				votes:[]
+				votes: []
 			}
 		]
 	},
@@ -19,9 +19,8 @@ const INITIAL_STATE = {
 		storyPoint: 0,
 		status: false,
 		storyId: '',
-		// points: []
 	},
-	point:0
+	points: []
 	// points: {
 	// 	storyId: '',
 	// 	values: []
@@ -37,9 +36,9 @@ const scrumPokerReducers = (state = INITIAL_STATE, action) => {
 		case GET_ACTIVE_STORY:
 			return { ...state, activeStory: action.payload };
 		case SET_STORY_POINT:
-			return { ...state, point: action.payload };
+			return { ...state, points: action.payload };
 		case END_VOTE:
-			return { ...state, sessionData: action.payload ,point:0};
+			return { ...state, sessionData: action.payload, points: [] };
 		default:
 			return state;
 	}
