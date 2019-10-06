@@ -23,7 +23,10 @@ class StoryListTable extends Component {
 					{this.props.sessionData.storyList.map((item, index) => {
 						return (
 							<tr key={index}>
-								<td onClick={() => this.props.getActiveStory(item)}>{item.storyName}</td>
+								<td onClick={() => {
+									console.log(item)
+									this.props.getActiveStory(item)}
+									}>{item.storyName}</td>
 								<td>{item.storyPoint === 0 ? '' : item.storyPoint}</td>
 								<td>{item.status === false ? 'Not Voted' : 'Active'}</td>
 							</tr>

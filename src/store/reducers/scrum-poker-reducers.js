@@ -1,4 +1,4 @@
-import { START_SESSION, GET_ACTIVE_STORY, SET_STORY_POINTS } from '../actions/types';
+import { START_SESSION, GET_ACTIVE_STORY, SET_STORY_POINT,END_VOTE } from '../actions/types';
 
 const INITIAL_STATE = {
 	sessionData: {
@@ -18,14 +18,13 @@ const INITIAL_STATE = {
 		storyPoint: 0,
 		status: false,
 		storyId: '',
-		voters: [
-			{
-				voterId: '',
-				votedPoint: 0
-			}
-		]
+		// points: []
 	},
-	points: []
+	point:0
+	// points: {
+	// 	storyId: '',
+	// 	values: []
+	// }
 };
 
 // sessionData is the data that we create on the first page.
@@ -36,8 +35,10 @@ const scrumPokerReducers = (state = INITIAL_STATE, action) => {
 			return { ...state, sessionData: action.payload };
 		case GET_ACTIVE_STORY:
 			return { ...state, activeStory: action.payload };
-		case SET_STORY_POINTS:
-			return { ...state, points: action.payload };
+		case SET_STORY_POINT:
+			return { ...state, point: action.payload };
+		case END_VOTE:
+			return { ...state, sessionData: action.payload ,point:0};
 		default:
 			return state;
 	}

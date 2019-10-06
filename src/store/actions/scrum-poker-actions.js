@@ -1,4 +1,4 @@
-import { START_SESSION, GET_ACTIVE_STORY, SET_STORY_POINTS } from './types';
+import { START_SESSION, GET_ACTIVE_STORY, SET_STORY_POINT, END_VOTE } from './types';
 
 export const startSessionAction = (payload) => (dispatch) => {
 	dispatch({
@@ -14,9 +14,16 @@ export const getActiveStory = (payload) => (dispatch) => {
 	});
 };
 
-export const setPoints = (payload) => (dispatch) => {
+export const setPoint = (payload) => (dispatch) => {
 	dispatch({
-		type: SET_STORY_POINTS,
+		type: SET_STORY_POINT,
+		payload
+	});
+};
+
+export const endVote = (payload) => (dispatch) => {
+	dispatch({
+		type: END_VOTE,
 		payload
 	});
 };
