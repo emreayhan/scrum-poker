@@ -5,7 +5,9 @@ import { getActiveStory, endVote } from '../../store/actions/scrum-poker-actions
 class ScrumMasterPanel extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			finalScore:0
+		};
 	}
 
 	render() {
@@ -28,32 +30,52 @@ class ScrumMasterPanel extends Component {
 						</div>
 					);
 				})}
-				<button onClick={() => {
-					// console.log(activeStory,"asdasd")
-					this.sendVote()
-				}} style={{ marginTop: '130px' }}>
+				<div style={{ marginTop: '80px' }}>
+					<div style={{ marginBottom: '10px' }}>Final Score</div>
+					<input
+						type="text"
+						className="inputText"
+						onChange={(e) => this.handleFinalScore(e)}
+						style={{ width: '100px' }}
+					/>
+				</div>
+				<button
+					onClick={() => {
+						// console.log(activeStory,"asdasd")
+						this.sendVote();
+					}}
+					style={{ marginTop: '20px' }}
+				>
 					End Voting For {activeStory.storyName}
 				</button>
 			</div>
 		);
 	}
 
+	handleFinalScore = (e) => {
+		this.setState({finalScore:e.target.value})
+
+	};
+
 	sendVote = () => {
 		const { point, activeStory, endVote, sessionData } = this.props;
-		console.log(sessionData.storyList.filter(item => item.storyId !== activeStory.storyId),"filter")
-			let story = {
-				sessionName: sessionData.sessionName,
-				numberOfVoters: sessionData.numberOfVoters,
-				storyList: [...sessionData.storyList.filter(item => item.storyId !== activeStory.storyId),
-					{
-						storyName: activeStory.storyName,
-						storyPoint: point,
-						status: true,
-						storyId: activeStory.storyId
-					}
-				]
-			};
-			endVote(story);
+		const {finalScore} = this.state;
+		
+		console.log(sessionData.storyList.filter((item) => item.storyId !== activeStory.storyId), 'filter');
+		let story = {
+			sessionName: sessionData.sessionName,
+			numberOfVoters: sessionData.numberOfVoters,
+			storyList: [
+				...sessionData.storyList.filter((item) => item.storyId !== activeStory.storyId),
+				{
+					storyName: activeStory.storyName,
+					storyPoint: finalScore,
+					status: true,
+					storyId: activeStory.storyId
+				}
+			]
+		};
+		endVote(story);
 	};
 }
 

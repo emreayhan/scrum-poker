@@ -23,11 +23,11 @@ class AddStoryList extends Component {
 
 	render() {
 		const { sessionName, numberOfVoters, storyList } = this.state;
-		let sessionData = {
-			sessionName,
-			numberOfVoters,
-			storyList
-		};
+			let sessionData = {
+				sessionName,
+				numberOfVoters,
+				storyList
+			};
 		return (
 			<div>
 				<Header />
@@ -38,7 +38,8 @@ class AddStoryList extends Component {
 							<input
 								type="text"
 								className="inputText"
-								value={this.state.sessionName}
+								maxLength="200"
+								value={sessionName}
 								onChange={(e) => this.handleChangeSessionName(e)}
 							/>
 						</div>
@@ -48,6 +49,7 @@ class AddStoryList extends Component {
 								type="text"
 								className="inputText"
 								onChange={(e) => this.handleChangeNumberOfVoters(e)}
+								value={numberOfVoters}
 							/>
 						</div>
 					</div>
@@ -74,7 +76,7 @@ class AddStoryList extends Component {
 	};
 
 	handleChangeNumberOfVoters = (e) => {
-		this.setState({ numberOfVoters: e.target.value });
+			this.setState({ numberOfVoters: e.target.value.replace(/[^1-9]/,'') }, () => console.log(this.state.numberOfVoters));
 	};
 
 	getStoryListAsArray = () => {

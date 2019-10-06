@@ -9,7 +9,8 @@ const INITIAL_STATE = {
 				storyName: '',
 				storyPoint: 0,
 				status: false,
-				storyId: ''
+				storyId: '',
+				votes:[]
 			}
 		]
 	},
